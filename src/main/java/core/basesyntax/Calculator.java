@@ -15,10 +15,6 @@ public class Calculator {
         OPERATIONS.put('^', Math::pow);
     }
 
-    public static Map<Character, BinaryOperator<Double>> getOPERATIONS() {
-        return OPERATIONS;
-    }
-
     public static double calculate(double num1, double num2, char operation) {
         if (!OPERATIONS.containsKey(operation)) {
             throw new IllegalArgumentException("The operation" + operation + " isn't supported");

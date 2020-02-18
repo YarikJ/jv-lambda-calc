@@ -50,12 +50,6 @@ public class CalculatorTest {
     }
 
     @Test
-    public void numberOfSupportedOperations() {
-        Assert.assertTrue(Calculator.getOPERATIONS().size() >= 5);
-    }
-
-
-    @Test
     public void byZeroDivision() {
         expectedException.expect(ArithmeticException.class);
         expectedException.expectMessage("Division by zero");
