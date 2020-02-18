@@ -28,4 +28,8 @@ public class Calculator {
         }
         return OPERATIONS.get(operation).apply(num1, num2);
     }
+
+    public static void main(String[] args) {
+        System.out.println(calculate(-2, -3, '^'));
+    }
 }

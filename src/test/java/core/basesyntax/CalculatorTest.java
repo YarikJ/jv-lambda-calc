@@ -12,14 +12,41 @@ public class CalculatorTest {
 
 
     @Test
-    public void operationsResultTest() {
+    public void sumOperationTest() {
         Assert.assertEquals(7, Calculator.calculate(5, 2, '+'), delta);
         Assert.assertEquals(7, Calculator.calculate(2, 5, '+'), delta);
-        Assert.assertEquals(14, Calculator.calculate(2, 7, '*'), delta);
-        Assert.assertEquals(-14, Calculator.calculate(7, -2, '*'), delta);
-        Assert.assertEquals(0.4, Calculator.calculate(2, 5, '/'), delta);
+        Assert.assertEquals(-7, Calculator.calculate(-2, -5, '+'), delta);
+    }
+
+    @Test
+    public void subtractionOperationTest() {
+        Assert.assertEquals(3, Calculator.calculate(5, 2, '-'), delta);
+        Assert.assertEquals(-3, Calculator.calculate(2, 5, '-'), delta);
+        Assert.assertEquals(3, Calculator.calculate(-2, -5, '-'), delta);
+    }
+
+    @Test
+    public void multiplyOperationTest() {
+        Assert.assertEquals(10, Calculator.calculate(5, 2, '*'), delta);
+        Assert.assertEquals(10, Calculator.calculate(2, 5, '*'), delta);
+        Assert.assertEquals(10, Calculator.calculate(-2, -5, '*'), delta);
+        Assert.assertEquals(-10, Calculator.calculate(-2, 5, '*'), delta);
+    }
+
+    @Test
+    public void divisionOperationTest() {
+        Assert.assertEquals(5, Calculator.calculate(10, 2, '/'), delta);
+        Assert.assertEquals(2, Calculator.calculate(10, 5, '/'), delta);
+        Assert.assertEquals(2, Calculator.calculate(-10, -5, '/'), delta);
+        Assert.assertEquals(-2, Calculator.calculate(-10, 5, '/'), delta);
+    }
+
+    @Test
+    public void powOperationTest() {
+        Assert.assertEquals(100, Calculator.calculate(10, 2, '^'), delta);
         Assert.assertEquals(32, Calculator.calculate(2, 5, '^'), delta);
-        Assert.assertEquals(0, Calculator.calculate(2, 2, '-'), delta);
+        Assert.assertEquals(-0.125, Calculator.calculate(-2, -3, '^'), delta);
+        Assert.assertEquals(-100000, Calculator.calculate(-10, 5, '^'), delta);
     }
 
     @Test
@@ -40,5 +67,4 @@ public class CalculatorTest {
         expectedException.expect(IllegalArgumentException.class);
         Calculator.calculate(25, 0, '?');
     }
-
 }
